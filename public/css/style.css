@@ -1,0 +1,123 @@
+svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* navbar */
+
+body {
+    background-color: #1c612b;
+  }
+  
+  .product ul li {
+    margin-left: 15px;
+  }
+  /* end navbar */
+  
+  /* main */
+  .main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .now {
+    position: absolute;
+    left: 45vw;
+  }
+  
+  .btn {
+    background-color: #53e420;
+  }
+  
+  .btn:hover {
+    background-color: #29740e;
+  }
+  
+  .hero {
+    position: relative;
+  }
+  
+  .bookmark {
+    padding: 10px;
+    width: 50px;
+    background-color: rgba(207, 195, 195, 0.4);
+    box-shadow: 5px 10px 18px #000;
+    border-radius: 10px;
+    position: absolute;
+    left: 80%;
+    top: -7%;
+    animation: moveUpDown1 7s infinite ease-in-out;
+  }
+  
+  @keyframes moveUpDown1 {
+    0%,
+    100% {
+      top: -7%;
+    }
+    50% {
+      top: 0;
+    }
+  }
+  
+  .richtext {
+    padding: 10px;
+    width: 50px;
+    background-color: rgba(207, 195, 195, 0.4);
+    box-shadow: 5px 10px 18px #000;
+    border-radius: 10px;
+    position: absolute;
+    left: 95%;
+    top: 80%;
+    animation: moveUpDown2 7s infinite ease-in-out;
+  }
+  
+  @keyframes moveUpDown2 {
+    0%,
+    100% {
+      top: 80%;
+    }
+    50% {
+      top: 90%;
+    }
+  }
+  
+  .diff {
+    padding: 10px;
+    width: 50px;
+    background-color: rgba(207, 195, 195, 0.4);
+    box-shadow: 5px 10px 18px #000;
+    border-radius: 10px;
+    position: absolute;
+    left: -20%;
+    top: 10%;
+    animation: moveUpDown3 7s infinite ease-in-out;
+  }
+  
+  @keyframes moveUpDown3 {
+    0%,
+    100% {
+      top: 10%;
+    }
+    50% {
+      top: 20%;
+    }
+  }
+  /* end main */
+  
+  /* table */
+  .ping {
+    animation: pingEffect 1s infinite;
+  }
+  @keyframes pingEffect {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
+  /* end table */
+  
