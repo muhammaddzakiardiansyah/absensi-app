@@ -121,3 +121,23 @@ body {
   }
   /* end table */
   
+  /* tambah */
+
+.form-input {
+  width: 60%;
+  height: 20%;
+  background-color: #F5F5F5;
+  margin-left: 10%;
+}
+
+.title {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.form {
+  padding-top: 10px;
+  padding-bottom: 50px;
+}
+
+/* end tambah */

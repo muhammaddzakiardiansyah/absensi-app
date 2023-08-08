@@ -3,7 +3,7 @@
 class Absensi_model
 {
 
-    private $table = 'db_absen';
+    private $table = 'tb_absen';
     private $db;
 
     public function __construct()

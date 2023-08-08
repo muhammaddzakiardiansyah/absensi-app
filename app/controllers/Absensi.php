@@ -7,7 +7,7 @@
         
     public function index() {
         $data['judul'] = 'Absensi Siswa';
-        $data['absensi'] = $this->model('absensi.model')->getAllAbsen();
+        $data['absensi'] = $this->model('Absensi_model')->getAllAbsen();
 
         $this->view('templates/header', $data);
         $this->view('absensi/index', $data);
@@ -16,15 +16,21 @@
 
     public function detail($id) {
         $data['judul'] = 'Detail Absensi';
-        $data['swa'] = $this->model('absensi.model')->getAbsenById($id);
+        $data['absen'] = $this->model('Absensi_model')->getAbsenById($id);
 
         $this->view('templates/header', $data);
         $this->view('absensi/detail', $data);
         $this->view('templates/footer');
     }
 
-    public function tambah() {
-        if( $this->model('absensi.model')->tambahAbsen($_POST) > 0 ) {
+    public function add() {
+        $data['judul'] = 'Tambah Absensi';
+
+        $this->view('templates/header', $data);
+        $this->view('absensi/add');
+        $this->view('templates/footer');
+
+        if( $this->model('Absensi_model')->tambahAbsen($_POST) > 0 ) {
             Flasher::setFlash('Berhasil', 'Ditambahkan', 'success', $this->iconSuccess, '#check-circle-fill');
             header('Location: ' . BASEURL . '/absensi');
             exit;
@@ -35,8 +41,18 @@
         }
     }
 
+    public function tambah() {
+        $data['judul'] = 'Tambah Absensi';
+
+        $this->view('templates/header', $data);
+        $this->view('absensi/tambah');
+        $this->view('templates/footer');
+
+        
+    }
+
     public function hapus($id) {
-        if( $this->model('absensi.model')->hapusAbsen($id) > 0 ) {
+        if( $this->model('Absensi_model')->hapusAbsen($id) > 0 ) {
             Flasher::setFlash('Berhasil', 'Dihapus', 'success', $this->iconSuccess, '#check-circle-fill');
             header('Location: ' . BASEURL . '/absensi');
             exit;
@@ -49,7 +65,7 @@
 
     public function getUbah() {
         
-       echo json_encode($this->model('absensi.model')->getAbsenById($_POST['id']));
+       echo json_encode($this->model('Absensi_model')->getAbsenById($_POST['id']));
    
     }
 
@@ -57,7 +73,7 @@
 
         // var_dump($_POST);
 
-        if( $this->model('absensi.model')->editAbsen($_POST) > 0 ) {
+        if( $this->model('Absensi_model')->editAbsen($_POST) > 0 ) {
             Flasher::setFlash('Berhasil', 'Diubah', 'success', $this->iconSuccess, '#check-circle-fill');
             header('Location: ' . BASEURL . '/siswa');
             exit;
@@ -71,7 +87,7 @@
 
     public function cari() {
         $data['judul'] = 'Daftar Siswa';
-        $data['siswa'] = $this->model('absensi.model')->cariAbsen();
+        $data['siswa'] = $this->model('Absensi_model')->cariAbsen();
 
         $this->view('templates/header', $data);
         $this->view('absensi/index', $data);

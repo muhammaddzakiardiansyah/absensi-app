@@ -4,7 +4,7 @@
         <div class="text text-white">
             <h1 class="fs-1 text fw-bold">Absenin</h1>
             <h3>Website absensi Siswa/i</h3>
-            <h2>Smk Syafi'i Akrom</h2>
+            <h2>XI RPL 1</h2>
         </div>
         <div class="hero">
             <img src="img/journal-bookmark-fill.svg" alt="" class="bookmark">
@@ -15,7 +15,7 @@
     </div>
     <div class="register mt-5">
         <p class="text-center text-white">Mulai keajaiban absensimu disini</p>
-        <a href="#" class="btn text-white now">Mulai Sekarang</a>
+        <a href="<?= BASEURL; ?>/absensi" class="btn text-white now">Mulai Sekarang</a>
     </div>
 </div>
 <!-- end main -->
