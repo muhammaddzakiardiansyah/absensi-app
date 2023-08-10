@@ -24,37 +24,38 @@
     }
 
     public function add() {
+        if(!empty($_POST)) {
+            if( $this->model('Absensi_model')->tambahAbsen($_POST) > 0 ) {
+                Flasher::setFlash('Berhasil', 'Ditambahkan', 'success', $this->iconSuccess, '#check-circle-fill');
+                header('Location: ' . BASEURL . '/loading');
+                exit;
+            } else {
+                Flasher::setFlash('Gagal', 'Ditambahkan', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
+                header('Location: ' . BASEURL . '/absensi');
+                exit;
+            }
+        }
         $data['judul'] = 'Tambah Absensi';
 
         $this->view('templates/header', $data);
         $this->view('absensi/add');
         $this->view('templates/footer');
-
-        if( $this->model('Absensi_model')->tambahAbsen($_POST) > 0 ) {
-            Flasher::setFlash('Berhasil', 'Ditambahkan', 'success', $this->iconSuccess, '#check-circle-fill');
-            header('Location: ' . BASEURL . '/absensi');
-            exit;
-        } else {
-            Flasher::setFlash('Gagal', 'Ditambahkan', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
-            header('Location: ' . BASEURL . '/absensi');
-            exit;
-        }
     }
 
-    public function tambah() {
-        $data['judul'] = 'Tambah Absensi';
+    // public function tambah() {
+    //     $data['judul'] = 'Tambah Absensi';
 
-        $this->view('templates/header', $data);
-        $this->view('absensi/tambah');
-        $this->view('templates/footer');
+    //     $this->view('templates/header', $data);
+    //     $this->view('absensi/tambah');
+    //     $this->view('templates/footer');
 
         
-    }
+    // }
 
-    public function hapus($id) {
+    public function delete($id) {
         if( $this->model('Absensi_model')->hapusAbsen($id) > 0 ) {
             Flasher::setFlash('Berhasil', 'Dihapus', 'success', $this->iconSuccess, '#check-circle-fill');
-            header('Location: ' . BASEURL . '/absensi');
+            header('Location: ' . BASEURL . '/loading');
             exit;
         } else {
             Flasher::setFlash('Gagal', 'Dihapus', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
@@ -69,28 +70,42 @@
    
     }
 
-    public function edit() {
+    public function edit($id) {
 
-        // var_dump($_POST);
-
-        if( $this->model('Absensi_model')->editAbsen($_POST) > 0 ) {
-            Flasher::setFlash('Berhasil', 'Diubah', 'success', $this->iconSuccess, '#check-circle-fill');
-            header('Location: ' . BASEURL . '/siswa');
-            exit;
-        } else {
-            Flasher::setFlash('Gagal', 'Diubah', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
-            header('Location: ' . BASEURL . '/siswa');
-            exit;
+        if(!empty($_POST)) {
+            if($_POST['pin'] == '0895632506450') {
+                if( $this->model('Absensi_model')->editAbsen($_POST) > 0 ) {
+                   Flasher::setFlash('Berhasil', 'Diubah', 'success', $this->iconSuccess, '#check-circle-fill');
+                   header('Location: ' . BASEURL . '/absensi/detail/' . $_POST['id'] );
+                   exit;
+                } else {
+                   Flasher::setFlash('Gagal', 'Diubah', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
+                   header('Location: ' . BASEURL . '/absensi/detail/' . $_POST['id']);
+                   exit;
+                }
+            } else {
+                Flasher::setFlash('Gagal', 'Diubah, kamu tidak memiliki hak akses untuk mengubah data ini!', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
+                header('Location: ' . BASEURL . '/absensi/detail/' . $_POST['id']);
+                exit;
+            }
+         
         }
+
+        $data['judul'] = 'Edit Absensi';
+        $data['absen'] = $this->model('Absensi_model')->getAbsenById($id);
+
+        $this->view('templates/header', $data);
+        $this->view('absensi/edit', $data);
+        $this->view('templates/footer');
 
     }
 
     public function cari() {
-        $data['judul'] = 'Daftar Siswa';
-        $data['siswa'] = $this->model('Absensi_model')->cariAbsen();
+        $data['judul'] = 'Absensi Siswa';
+        $data['absensi'] = $this->model('Absensi_model')->cariAbsen($_POST);
 
         $this->view('templates/header', $data);
-        $this->view('absensi/index', $data);
+        $this->view('absensi/index');
         $this->view('templates/footer');
     }
 

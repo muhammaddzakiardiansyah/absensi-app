@@ -9,10 +9,10 @@ body {
     background-color: #1c612b;
   }
   
-  .product ul li {
-    margin-left: 15px;
-  }
+
   /* end navbar */
+
+
   
   /* main */
   .main {
@@ -141,3 +141,4 @@ body {
 }
 
 /* end tambah */
+
