@@ -1,3 +1,41 @@
+<?php
+ function bulanIndonesia($bulan) {
+    $bulanArr = array(
+        1 => 'Januari',
+        2 => 'Februari',
+        3 => 'Maret',
+        4 => 'April',
+        5 => 'Mei',
+        6 => 'Juni',
+        7 => 'Juli',
+        8 => 'Agustus',
+        9 => 'September',
+        10 => 'Oktober',
+        11 => 'November',
+        12 => 'Desember'
+    );
+    return $bulanArr[$bulan];
+}
+
+function hariIndonesia($hari) {
+    $hariArr = array(
+        'Sunday' => 'Minggu',
+        'Monday' => 'Senin',
+        'Tuesday' => 'Selasa',
+        'Wednesday' => 'Rabu',
+        'Thursday' => 'Kamis',
+        'Friday' => 'Jumat',
+        'Saturday' => 'Sabtu'
+    );
+    return $hariArr[$hari];
+}
+
+date_default_timezone_set('Asia/Jakarta');
+$tanggal = date('d-m-Y');
+$tanggalObj = new DateTime($tanggal);
+$tanggalFormatted = hariIndonesia($tanggalObj->format('l')) . ', ' . $tanggalObj->format('d') . ' ' . bulanIndonesia($tanggalObj->format('n')) . ' ' . $tanggalObj->format('Y');
+?>
+
 <!-- main -->
 <div class="container mt-5">
     <!-- alert -->
@@ -51,7 +89,11 @@
                         $dateTime = new DateTime($timestamp);
                         $formattedTime = $dateTime->format('H:i');
                         ?>
-                        <td><?= $formattedTime ?></td>
+                        <td><?php if($absen['status_kehadiran'] == "Tidak Hadir") {
+                            echo "-";
+                        } else {
+                            echo $formattedTime;
+                        } ?></td>
                         <td>
                             <a href="<?= BASEURL; ?>/absensi/detail/<?= $absen['id'] ?>" class="badge text-bg-info text-decoration-none text-white"><i class="bi bi-eye"></i> Detail</a>
                         </td>
@@ -61,6 +103,9 @@
             <?php endif; ?>
         </tbody>
     </table>
+    <p class="text-white fw-semibold">Absensi : <?= $tanggalFormatted ?></p>
     <!-- end table absen -->
 </div>
 <!-- end main -->
+
+

@@ -1,3 +1,41 @@
+<?php
+ function bulanIndonesia($bulan) {
+    $bulanArr = array(
+        1 => 'Januari',
+        2 => 'Februari',
+        3 => 'Maret',
+        4 => 'April',
+        5 => 'Mei',
+        6 => 'Juni',
+        7 => 'Juli',
+        8 => 'Agustus',
+        9 => 'September',
+        10 => 'Oktober',
+        11 => 'November',
+        12 => 'Desember'
+    );
+    return $bulanArr[$bulan];
+}
+
+function hariIndonesia($hari) {
+    $hariArr = array(
+        'Sunday' => 'Minggu',
+        'Monday' => 'Senin',
+        'Tuesday' => 'Selasa',
+        'Wednesday' => 'Rabu',
+        'Thursday' => 'Kamis',
+        'Friday' => 'Jumat',
+        'Saturday' => 'Sabtu'
+    );
+    return $hariArr[$hari];
+}
+
+date_default_timezone_set('Asia/Jakarta');
+$tanggal = date('d-m-Y');
+$tanggalObj = new DateTime($tanggal);
+$tanggalFormatted = hariIndonesia($tanggalObj->format('l')) . ', ' . $tanggalObj->format('d') . ' ' . bulanIndonesia($tanggalObj->format('n')) . ' ' . $tanggalObj->format('Y');
+?>
+
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
@@ -5,6 +43,7 @@
         </div>
     </div>
     <h2 class="text-center text-white mb-4 mt-4">Detail Kehadiran Siswa</h2>
+    <p class="text-white fw-semibold">Absensi : <?= $tanggalFormatted ?> </p>
     <table class="table">
         <thead class="table-dark">
             <tr>
@@ -27,7 +66,11 @@
                     $dateTime = new DateTime($timestamp);
                     $formattedTime = $dateTime->format('H:i');
                 ?>
-                <td><?= $formattedTime ?></td>
+                <td><?php if($data['absen']['status_kehadiran'] == "Tidak Hadir") {
+                      echo "-";
+                } else {
+                    echo $formattedTime;
+                } ?></td>
                 <td><span class="badge rounded-pill <?php if($data['absen']['status_kehadiran'] == "Pending") {
                             echo "text-bg-warning text-white";
                         } elseif($data['absen']['status_kehadiran'] == "Hadir") {
@@ -44,9 +87,9 @@
     </table>
     <h5 class="mb-4 mt-4 text-white">Rating Kehadiranmu :</h5>
     <?php if($data['absen']['status_kehadiran'] == "Tidak Hadir") : ?>
-        <h2 class="text-center text-white mt-4">Tidak ada rating, Siswa ini tidak hadir</h2>
+        <h5 class="text-center text-white mt-4">Tidak ada rating, Siswa ini tidak hadir</h5>
     <?php elseif($data['absen']['status_kehadiran'] == "Pending") : ?>
-        <h2 class="text-center text-white mt-4">Rating hanya bisa dilihat bagi siswa yang status kehadiranya "Hadir"</h2>
+        <h5 class="text-center text-white mt-4">Rating hanya bisa dilihat bagi siswa yang status kehadiranya "Hadir"</h5>
     <?php else : ?>
     <div class="rating">
         <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">

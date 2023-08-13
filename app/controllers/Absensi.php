@@ -73,7 +73,7 @@
     public function edit($id) {
 
         if(!empty($_POST)) {
-            if($_POST['pin'] == '0895632506450') {
+            if($_POST['pin'] == '2817') {
                 if( $this->model('Absensi_model')->editAbsen($_POST) > 0 ) {
                    Flasher::setFlash('Berhasil', 'Diubah', 'success', $this->iconSuccess, '#check-circle-fill');
                    header('Location: ' . BASEURL . '/absensi/detail/' . $_POST['id'] );
