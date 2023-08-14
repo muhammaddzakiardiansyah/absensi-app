@@ -130,7 +130,7 @@ $tanggalFormatted = hariIndonesia($tanggalObj->format('l')) . ', ' . $tanggalObj
     </div>
     <?php endif; ?>
     <div class="d-flex justify-content-end mt-5">
-        <a class="btn btn-primary" href="<?= BASEURL; ?>/absensi" class="card-link"><i class="bi bi-box-arrow-left"></i> Kembali</a>
+        <a class="btn btn-primary tombol" href="<?= BASEURL; ?>/absensi" class="card-link"><i class="bi bi-box-arrow-left"></i> Kembali</a>
     </div>
 </div>
 

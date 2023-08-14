@@ -13,7 +13,7 @@ class Text extends Controller {
         $data['judul'] = 'Dokumentasi';
 
         $this->view('templates/header', $data);
-        $this->view('text/about');
+        $this->view('text/docs');
         $this->view('templates/footer');
     }
 }

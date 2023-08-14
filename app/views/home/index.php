@@ -15,7 +15,7 @@
     </div>
     <div class="register mt-5">
         <p class="text-center text-white">Mulai keajaiban absensimu disini</p>
-        <a href="<?= BASEURL; ?>/loading" class="btn text-white now">Mulai Sekarang</a>
+        <a href="<?= BASEURL; ?>/loading" class="btn text-white now">Mulai Sekarang!</a>
     </div>
 </div>
 <!-- end main -->

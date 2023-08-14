@@ -25,9 +25,13 @@ body {
     position: absolute;
     left: 45vw;
   }
+
+  .tombol {
+    background-color: #53e420!important;
+  }
   
   .btn {
-    background-color: #53e420;
+    background-color: #53e420!important;
   }
   
   .btn:hover {
