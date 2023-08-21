@@ -64,6 +64,18 @@
         }
     }
 
+    public function deleteAll() {
+        if( $this->model('Absensi_model')->hapusSemuaAbsen() > 0 ) {
+            Flasher::setFlash('Berhasil', 'Dihapus', 'success', $this->iconSuccess, '#check-circle-fill');
+            header('Location: ' . BASEURL . '/loading');
+            exit;
+        } else {
+            Flasher::setFlash('Gagal', 'Dihapus', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
+            header('Location: ' . BASEURL . '/absensi');
+            exit;
+        }
+    }
+
     public function getUbah() {
         
        echo json_encode($this->model('Absensi_model')->getAbsenById($_POST['id']));

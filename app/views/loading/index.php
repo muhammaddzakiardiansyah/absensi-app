@@ -130,10 +130,10 @@
                                 <a class="nav-link text-white" aria-current="page" href="#">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="#">Features</a>
+                                <a class="nav-link text-white" href="#">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white" href="#">Pricing</a>
+                                <a class="nav-link text-white" href="#">Docs</a>
                             </li>
                         </ul>
                     </div>

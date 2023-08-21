@@ -1,3 +1,4 @@
+<!-- CONFERT MONTH ING TO IND -->
 <?php
  function bulanIndonesia($bulan) {
     $bulanArr = array(
@@ -17,6 +18,8 @@
     return $bulanArr[$bulan];
 }
 
+// CONFERT DAY ING TO IND
+
 function hariIndonesia($hari) {
     $hariArr = array(
         'Sunday' => 'Minggu',
@@ -29,6 +32,8 @@ function hariIndonesia($hari) {
     );
     return $hariArr[$hari];
 }
+
+// FUNCTION DAY MOUNT
 
 date_default_timezone_set('Asia/Jakarta');
 $tanggal = date('d-m-Y');
@@ -104,8 +109,28 @@ $tanggalFormatted = hariIndonesia($tanggalObj->format('l')) . ', ' . $tanggalObj
         </tbody>
     </table>
     <p class="text-white fw-semibold">Absensi : <?= $tanggalFormatted ?></p>
+    <a href="#" class="btn fw-semibold delete" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash3"></i> Delete All</a>
     <!-- end table absen -->
 </div>
 <!-- end main -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Peringatan!</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       <p>Yakin tetap ingin menghapus data ini?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="bi bi-box-arrow-left"></i> Tidak</button>
+        <a href="<?= BASEURL; ?>/absensi/deleteAll" class="btn btn-primary"><i class="bi bi-trash3"></i> Ya</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 

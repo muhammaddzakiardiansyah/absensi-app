@@ -26,17 +26,17 @@ body {
     left: 45vw;
   }
 
-  .tombol {
+  /* .tombol {
+    background-color: #53e420!important;
+  } */
+  
+  /* .btn-home {
     background-color: #53e420!important;
   }
   
-  .btn {
-    background-color: #53e420!important;
-  }
-  
-  .btn:hover {
+  .btn-home:hover {
     background-color: #29740e;
-  }
+  } */
   
   .hero {
     position: relative;
@@ -145,4 +145,3 @@ body {
 }
 
 /* end tambah */
-

@@ -55,6 +55,16 @@ class Absensi_model
         return $this->db->rowCount();
     }
 
+    public function hapusSemuaAbsen()
+    {
+        $query = "DELETE FROM tb_absen";
+        $this->db->query($query);
+
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
     public function editAbsen($data)
     {
         $query = "UPDATE tb_absen SET
