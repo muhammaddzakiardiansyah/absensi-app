@@ -78,7 +78,11 @@ $tanggalFormatted = hariIndonesia($tanggalObj->format('l')) . ', ' . $tanggalObj
                         } else {
                             echo "text-bg-danger";
                         } ?>"><?= $data['absen']['status_kehadiran'] ?></span></td>
-                <td><?= $data['absen']['keterangan'] ?></td>
+                <td><?php if($data['absen']['status_kehadiran'] == "Hadir") {
+                    echo 'Hadir';
+                } else {
+                   echo $data['absen']['keterangan'];
+                } ?></td>
                 <td>
                     <a href="<?= BASEURL; ?>/absensi/edit/<?= $data['absen']['id']; ?>" class="badge text-bg-warning text-decoration-none text-white"><i class="bi bi-file-diff"></i> Edit</a> | <a href="#" class="badge text-bg-danger text-decoration-none" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash3"></i> Delete</a>
                 </td>

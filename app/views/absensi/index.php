@@ -53,7 +53,7 @@ $tanggalFormatted = hariIndonesia($tanggalObj->format('l')) . ', ' . $tanggalObj
     <h2 class="text-center text-white">Daftar Absen XII RPL 1</h2>
     <!-- tambah absen -->
     <div class="button mb-3 d-flex justify-content-end">
-        <a href="<?= BASEURL; ?>/absensi/add" class="btn position-relative fw-semibold">
+        <a href="<?= BASEURL; ?>/absensi/add" class="btn position-relative fw-semibold" style="background-color: #53e420;">
         <i class="bi bi-file-diff"></i> Tambah Absen
         </a>
     </div>
@@ -109,7 +109,7 @@ $tanggalFormatted = hariIndonesia($tanggalObj->format('l')) . ', ' . $tanggalObj
         </tbody>
     </table>
     <p class="text-white fw-semibold">Absensi : <?= $tanggalFormatted ?></p>
-    <a href="#" class="btn fw-semibold delete" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash3"></i> Delete All</a>
+    <a href="#" class="btn btn-danger fw-semibold delete" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-trash3"></i> Delete All</a>
     <!-- end table absen -->
 </div>
 <!-- end main -->

@@ -70,7 +70,7 @@
             header('Location: ' . BASEURL . '/loading');
             exit;
         } else {
-            Flasher::setFlash('Gagal', 'Dihapus', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
+            Flasher::setFlash('Gagal', 'Dihapus, Tidak ada data yang tersedia.', 'danger', $this->iconDanger, '#exclamation-triangle-fill');
             header('Location: ' . BASEURL . '/absensi');
             exit;
         }

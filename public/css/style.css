@@ -30,13 +30,13 @@ body {
     background-color: #53e420!important;
   } */
   
-  /* .btn-home {
-    background-color: #53e420!important;
+  button .btn-p {
+    background-color: #53e420;
   }
   
-  .btn-home:hover {
+  .btn-p:hover {
     background-color: #29740e;
-  } */
+  }
   
   .hero {
     position: relative;

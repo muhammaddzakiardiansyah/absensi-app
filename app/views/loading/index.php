@@ -99,6 +99,12 @@
             animation: left 1.2s linear infinite;
         }
 
+        .text {
+            position: absolute;
+            top: 600px;
+            left: 45vw;
+        }
+
         @keyframes left {
             50% {
                 left: 70px;
@@ -150,7 +156,7 @@
         <div class="bottom ball"></div>
         <div class="left ball"></div>
     </div>
-    <p class="text-center text-white fw-bold">Tunggu Sebentar</p>
+    <p class="text-center text-white fw-bold text">Tunggu Sebentar</p>
 
     <!-- Pengalihan otomatis setelah beberapa saat -->
     <script>
